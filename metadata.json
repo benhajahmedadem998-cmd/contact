@@ -1,0 +1,6 @@
+{
+  "name": "Carnet Contacts — Vue.js",
+  "description": "Application web Vue.js de gestion des contacts avec liste personnalisée, fiche détaillée, appel, e-mail et gestion de photo.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}

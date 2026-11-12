@@ -1,11 +1,32 @@
-<div align="center">
+# Carnet Contacts — Application Vue.js
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Application web Vue.js de gestion des contacts réalisée avec Vue 3 (`<script setup>`), Vue Router et Tailwind CSS, structurée selon les principes du chapitre **Composants** :
 
-  <h1>Built with AI Studio</h2>
+## Architecture des composants
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Conteneurs (Pages / Vues)** :
+  - `ListeContacts.vue` : gère le filtre de recherche et la navigation vers la fiche d'un contact.
+  - `DetailContact.vue` : gère le formulaire, la validation, la sélection de photo (galerie / caméra) et la sauvegarde.
+- **Composants de présentation et de base (`PascalCase`)** :
+  - `AppEnTete.vue` : barre de navigation unique de l'application (préfixe `App`).
+  - `BaseCarte.vue` : carte générique à **slot par défaut** et **slot nommé** `#entete`.
+  - `BaseModale.vue` : fenêtre modale à **slots nommés** (`#titre`, `#actions`) et slot par défaut.
+  - `BaseChamp.vue` : champ de formulaire réutilisable avec `defineModel`, `defineOptions({ inheritAttrs: false })`, `v-bind="$attrs"` et slot de label.
+  - `ListeGenerique.vue` : composant de liste générique avec **slot à portée limitée** (`scoped slot`).
+  - `BarreRecherche.vue` : composant de recherche bidirectionnelle avec `defineModel`.
+  - `AvatarContact.vue` : affichage de la photo avec validation de prop (`taille`) et initiales de repli.
+  - `CarteContact.vue` : composant de présentation pur (*props down, events up* : reçoit `contact`, émet `modifier`).
+  - `ModaleCamera.vue` : capture photo via `getUserMedia` avec solution de repli (`capture`) en cas d'indisponibilité.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Installation et exécution
 
-</div>
+```bash
+npm install
+npm run dev
+```
+
+Pour compiler le projet en production :
+
+```bash
+npm run build
+```
